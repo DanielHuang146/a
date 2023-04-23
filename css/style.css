@@ -1,0 +1,888 @@
+﻿@charset "UTF-8";
+
+/******************************* body *******************************/
+body {
+    background: #FFFFFF;
+    color: #2D415C;
+}
+
+/**************************** container *****************************/
+.container {
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.container:after {
+        content: " ";
+        display: block;
+        clear: both;
+}
+@media only screen and (max-width: 700px) {
+    .container {
+        max-width: 100%;
+/*        margin-left: 15px;
+        margin-right: 15px;*/
+    }
+}
+
+.container.gap {
+    padding-bottom: 80px;
+}
+
+/**************************** pattern bg *****************************/
+.bg_payment_flow{
+    position: absolute;
+    width: 100%;
+    z-index: -2;
+    height: 314px;
+    top: 0;
+    background: #EFF1F7;
+}
+.bg_pattern{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: calc(50% + 180px);
+    width: 358px;
+    height: 314px;
+}
+
+@media only screen and (max-width: 1120px) {
+  .bg_pattern{
+        right: 0px;
+        left: auto;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+  .bg_pattern{
+        width: 215px;
+        height: 156px;
+        opacity: .8;
+    }
+}
+
+/******************************* loading *******************************/
+/* The Loader */
+.loader_wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.loader_bg {
+    background: rgba(7, 12, 19, .9);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 110px;
+    min-height: 110px;
+    margin: -55px 0 0 -55px;
+    border-radius: 5px;
+}
+.loader{
+    margin-top: 40px;
+}
+
+.loader_animate {
+    position: relative;
+    margin: 0 auto;
+    width: 7px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-animation: pulse 750ms infinite;
+    animation: pulse 750ms infinite;
+    -webkit-animation-delay: 250ms;
+    animation-delay: 250ms;
+}
+.loader_animate:before, .loader_animate:after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 18px;
+        width: 7px;
+        background: rgba(255, 255, 255, 0.2);
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-animation: pulse 750ms infinite;
+        animation: pulse 750ms infinite;
+}
+.loader_animate:before {
+        left: -14px;
+}
+.loader_animate:after {
+        left: 14px;
+        -webkit-animation-delay: 500ms;
+        animation-delay: 500ms;
+}
+@-webkit-keyframes pulse {
+    50% {
+        background: white;
+    }
+}
+
+@keyframes pulse {
+    50% {
+        background: white;
+    }
+}
+
+/**************************** header *****************************/
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0 28px 0;
+}
+header p{
+        padding-left: 100px;
+        text-align: right;
+        font-size: 12px;
+        line-height: 1.5;
+        flex: 1;
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+        margin-right: 5px;
+}
+.logo h1{
+        font-size: 28px;
+        color: #2D415C;
+        line-height: 1;
+}
+
+@media only screen and (max-width: 700px) {
+  header{
+        justify-content: inherit;
+        flex-wrap: wrap;
+        margin: 20px 0 5px 0;
+    }
+
+    .logo {
+        width: 100%;
+        margin-bottom: 10px;
+        justify-content: center;
+    }
+  header p{
+        width: 100%;
+        flex: inherit;
+        text-align: center;
+        padding: 0px 10% 10px 10%;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+  header p{
+        padding: 0px 0px 10px 0px;
+    }
+}
+
+/**************************** 共用content框架 *****************************/
+.payment_system_content{
+    width: 100%;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(119,139,158, .4);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+.payment_system_content .description_content {
+    font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+}
+.payment_system_content .article_content {
+    padding: 22px;
+    border-top: 1px solid #D9DEE4;
+    font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+}
+@media only screen and (max-width: 580px) {
+  .payment_system_content .article_content{
+        padding: 14px;
+    }
+}
+
+/**************************** 共用文字 *****************************/
+/* h1 標題 */
+.payment_system_content h1{
+    font-size: 15px;
+    line-height: 1.2;
+    padding: 16px 22px;
+}
+/* h2 溫馨提示標題 */
+.payment_system_content h2{
+    font-size: 15px;
+    line-height: 1.8;
+    display: flex;
+    align-items: center;
+}
+.payment_system_content h2 img {
+        margin-right: 3px;
+}
+/* p a 溫馨提示內文與連結 */
+.payment_system_content p,
+.payment_system_content p a{
+    font-size: 13px;
+    line-height: 1.6;
+    color: #2D415C;
+}
+.payment_system_content p a:hover{
+        opacity: .8;
+}
+/* p a 文字的對齊方式 */
+.payment_system_content .font_align_center{
+    text-align: center;
+}
+.payment_system_content .font_align_right{
+    text-align: right;
+}
+/* p a 溫馨提示內文與連結 紅色文字 */
+.payment_system_content .color_red,
+.payment_system_content a.color_red{
+    color: #E92121;
+}
+/* p a 溫馨提示內文與連結 藍色文字 */
+.payment_system_content .color_blue,
+.payment_system_content a.color_blue{
+    color: #0086FF;
+}
+/* 粗體 */
+.payment_system_content .font_bold{
+    font-weight: bold;
+}
+/* 文字尺寸 */
+.payment_system_content .font_sizeL{
+    font-size: 28px;
+    line-height: 1;
+}
+.payment_system_content .font_sizeXL{
+    font-size: 36px;
+    line-height: 1;
+}
+.payment_system_content .font_sizeXXL{
+    font-size: 46px;
+    line-height: 1;
+}
+
+@media only screen and (max-width: 580px) {
+  .payment_system_content h1{
+        padding: 14px 14px;
+    }
+}
+
+/**************************** 共用margin *****************************/
+/* margin */
+.payment_system_content .mgt20{
+    margin-top: 20px;
+}
+.payment_system_content .mgt15{
+    margin-top: 10px;
+}
+.payment_system_content .mgt10{
+    margin-top: 10px;
+}
+.payment_system_content .mgt5{
+    margin-top: 5px;
+}
+.payment_system_content .mgb20{
+    margin-bottom: 20px;
+}
+.payment_system_content .mgb15{
+    margin-bottom: 15px;
+}
+.payment_system_content .mgb10{
+    margin-bottom: 10px;
+}
+.payment_system_content .mgb5{
+    margin-bottom: 5px;
+}
+
+/**************************** 共用按鈕 *****************************/
+.payment_system_content .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default !important;
+}
+.payment_system_content .btn a{
+        display: block;
+        text-align: center;
+        font-size: 16px;
+        line-height: 1;
+        border-radius: 3px;
+        color: white;
+        background: #2D415C;
+}
+.payment_system_content .bg_blue,
+.payment_system_content a.bg_blue{
+    background: #0086FF;
+}
+/* 基本樣式 寬度100% */
+.payment_system_content .btn a.width_full{
+    width: 100%;
+    padding: 13px 0;
+}
+/* 基本樣式 寬度依文字長度 */
+.payment_system_content .btn a.width_auto{
+    width: auto;
+    padding: 13px 60px;
+    min-width: 250px;
+}
+/* 外框線樣式 寬度依文字長度 */
+.payment_system_content .btn a.outline_btn{
+    width: auto;
+    padding: 5px 16px;
+    border: 1px solid #2D415C;
+    color: #2D415C;
+    font-size: 12px;
+    background: none;
+    border-radius: 100px;
+}
+.payment_system_content .btn a:hover{
+    opacity: .9;
+}
+/* disable */
+.payment_system_content .btn a.disable{
+    color: rgba(255,255,255, .4);
+    pointer-events: none;
+}
+
+@media only screen and (max-width: 580px) {
+  .payment_system_content .btn a.width_auto{
+        width: 100%;
+        padding: 13px 0;
+    }
+}
+
+/**************************** 共用 QRcode框架 *****************************/
+.payment_system_content .qrcode_content{
+    display: flex;
+    justify-content: center;
+}
+.payment_system_content .qrcode_content img{
+  border: 1px solid #2D415C;
+}
+
+
+
+
+
+/**************************** 共用 圖片框架 *****************************/
+.payment_system_content .image_content{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.payment_system_content .image_content img{
+
+}
+@media only screen and (max-width: 480px) {
+  .payment_system_content .image_content img{
+
+    }
+}
+
+/**************************** list RWD Mode *****************************/
+/* 註：col_後面接的數字代表桌機尺寸時，一排數量有幾個項目，1-5可依照需求隨意更改 */
+/* 註：p_col_可控制手機尺寸時一排有幾個，1-2可依照需求隨意更改 */
+/* 註：桌機、手機可分開控制 */
+.payment_system_content .list ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.payment_system_content .list li{
+    margin-bottom: 10px;
+}
+/* 一排數量RWD */
+.payment_system_content .list.col_5 li{
+    width: 19%;
+    margin-right: 1.25%;
+}
+.payment_system_content .list.col_5 li:nth-child(5n + 5){
+        margin-right: 0;
+}
+.payment_system_content .list.col_4 li{
+    width: 24%;
+    margin-right: 1.333333%;
+}
+.payment_system_content .list.col_4 li:nth-child(4n + 4){
+        margin-right: 0;
+}
+.payment_system_content .list.col_3 li{
+    width: 32%;
+    margin-right: 2%;
+}
+.payment_system_content .list.col_3 li:nth-child(3n + 3){
+        margin-right: 0;
+}
+.payment_system_content .list.col_2 li{
+    width: 49%;
+    margin-right: 2%;
+}
+.payment_system_content .list.col_2 li:nth-child(2n + 2){
+        margin-right: 0;
+}
+.payment_system_content .list.col_1 li{
+    width: 100%;
+    margin-right: 0;
+}
+
+@media only screen and (max-width: 700px) {
+  .payment_system_content .list{
+        min-height: auto;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+  .payment_system_content .list li{
+        width: 50%;
+        margin-right: 2%;
+    }
+  .payment_system_content .list.col_5 li{
+        width: inherit;
+        margin-right: 0;
+    }
+  .payment_system_content .list.col_5 li:nth-child(5n + 5){
+            margin-right: 0;
+        }
+  .payment_system_content .list.col_4 li{
+        width: inherit;
+        margin-right: 0;
+    }
+  .payment_system_content .list.col_4 li:nth-child(4n + 4){
+            margin-right: 0;
+        }
+  .payment_system_content .list.col_3 li{
+        width: inherit;
+        margin-right: 0;
+    }
+  .payment_system_content .list.col_3 li:nth-child(3n + 3){
+            margin-right: 0;
+        }
+  .payment_system_content .list.col_2 li{
+        width: inherit;
+        margin-right: 0;
+    }
+  .payment_system_content .list.col_2 li:nth-child(2n + 2){
+            margin-right: 0;
+        }
+
+    .payment_system_content .list.p_col_2 li:nth-child(5n + 5),
+    .payment_system_content .list.p_col_2 li:nth-child(4n + 4),
+  .payment_system_content .list.p_col_2 li:nth-child(3n + 3){
+        margin-right: 2%;
+    }
+  .payment_system_content .list.p_col_2 li{
+        width: 49%;
+        margin-right: 2%;
+    }
+  .payment_system_content .list.p_col_2 li:nth-child(2n + 2){
+            margin-right: 0;
+        }
+  .payment_system_content .list.p_col_1 li{
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    /* 一排數量RWD */
+  .payment_system_content .list.col_5 li{
+        width: 100%;
+        margin-right: 0;
+    }
+  .payment_system_content .list.col_5 li:nth-child(5n + 5){
+            margin-right: 0;
+        }
+  .payment_system_content .list.col_4 li{
+        width: 100%;
+        margin-right: 0;
+    }
+  .payment_system_content .list.col_4 li:nth-child(4n + 4){
+            margin-right: 0;
+        }
+  .payment_system_content .list.col_3 li{
+        width: 100%;
+        margin-right: 0;
+    }
+  .payment_system_content .list.col_3 li:nth-child(3n + 3){
+            margin-right: 0;
+        }
+  .payment_system_content .list.col_2 li{
+        width: 100%;
+        margin-right: 0;
+    }
+  .payment_system_content .list.col_2 li:nth-child(2n + 2){
+            margin-right: 0;
+        }
+
+        .payment_system_content .list.col_5 li:nth-child(2n + 2),
+        .payment_system_content .list.col_4 li:nth-child(2n + 2),
+        .payment_system_content .list.col_3 li:nth-child(2n + 2),
+        .payment_system_content .list.col_2 li:nth-child(2n + 2),
+  .payment_system_content .list.col_1 li:nth-child(2n + 2){
+            margin-right: 0;
+        }
+}
+
+/**************************** 選項 打勾樣式 *****************************/
+.payment_system_content .list.check_pattern li a{
+    flex: 1;
+    font-size: 16px;
+    color: #2D415C;
+    line-height: 1;
+    padding: 11px 0px;
+    border-radius: 3px;
+    display: block;
+    text-align: center;
+    border: 1px solid #D9DEE4;
+}
+.payment_system_content .list.check_pattern li a:hover,
+.payment_system_content .list.check_pattern li a.select{
+        border: 1px solid #2D415C;
+        color: #2D415C;
+        background: url("../../img/gateway/ic_check_pay.svg") right 0 top 0 no-repeat;
+}
+@media only screen and (max-width: 700px) {
+  .payment_system_content .list.check_pattern li a{
+        font-size: 15px;
+    }
+}
+
+/**************************** 選項 radio button *****************************/
+/* Hide the browser's default radio button */
+.payment_system_content .list.radio_button label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #D9DEE4;
+    border-radius: 3px;
+}
+
+.payment_system_content .list.radio_button.text_style label {
+    padding: 10px 10px 10px 34px;
+}
+
+.payment_system_content .list.radio_button.img_style label {
+    padding: 0 0 0 34px;
+}
+
+.payment_system_content .list.radio_button label:hover,
+.payment_system_content .list.radio_button label.active {
+    border: 1px solid #2D415C;
+  
+}
+
+.payment_system_content .list.radio_button label p {
+    line-height: 16px;
+    font-size: 15px;
+}
+
+.payment_system_content .list.radio_button label img {
+    max-width: 127px;
+    height: 40px;
+    pointer-events: none;
+}
+
+.payment_system_content .list.radio_button label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom radio button */
+.payment_system_content .list.radio_button .checkmark {
+    position: absolute;
+    left: 10px;
+    height: 16px;
+    width: 16px;
+    background-color: #FFF;
+    border: 1px solid #2D415C;
+    border-radius: 50%;
+}
+
+.payment_system_content .list.radio_button.text_style .checkmark {
+    top: 10px;
+}
+
+.payment_system_content .list.radio_button.img_style .checkmark {
+    top: 12px;
+}
+
+/* On mouse-over, add a grey background color */
+.payment_system_content .list.radio_button li:hover input ~ .checkmark {
+    background-color: #FFF;
+}
+
+/* When the radio button is checked, add a blue background */
+.payment_system_content .list.radio_button li input:checked ~ .checkmark {
+    background-color: #2D415C;
+    border: 1px solid #2D415C;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.payment_system_content .list.radio_button .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.payment_system_content .list.radio_button li input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.payment_system_content .list.radio_button li .checkmark:after {
+    top: 4px;
+    left: 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+}
+
+@media only screen and (max-width: 700px) {
+    .payment_system_content .list.radio_button label p {
+        font-size: 14px;
+    }
+}
+
+/**************************** 表單 *****************************/
+form.form_align_center{
+    width: 440px;
+    margin: 0 auto;
+}
+
+.label_input {
+    position: relative;
+    clear: both;
+    font-size: 13px;
+    width: 100%
+}
+.label_input label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+        white-space: nowrap;
+        line-height: 1;
+}
+.label_input label p{
+            font-size: 16px;
+}
+.label_input label p span{
+                font-size: 12px;
+}
+.label_input input {
+        border-radius: 3px;
+        height: 38px;
+        width: 100%;
+        outline: 0;
+        border: 1px solid #2D415C;
+        padding: 0 10px;
+        color: #2D415C;
+}
+.label_input_copy {
+    border-radius: 3px;
+    /*height: 38px;*/
+    outline: 0;
+    padding: 0 10px;
+    color: #2D415C;
+}
+
+@media only screen and (min-width: 600px) {
+    .label_input_copy {
+        font-size: 16px;
+    }
+}
+
+.label_input_copy input {
+    font-weight: 900;
+}
+
+.label_input input[disabled=disabled] {
+    background: #eee;
+}
+
+.label_input input:focus {
+    border: 1px solid #0086FF;
+    color: #2D415C;
+}
+
+.label_input input::-webkit-input-placeholder { /* Edge */
+    color: #A3A8AF;
+}
+
+.label_input input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #A3A8AF;
+}
+
+.label_input input::placeholder {
+    color: #A3A8AF;
+}
+
+/* 錯誤訊息 */
+.input_error {
+    color: #E92121;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 8px 0 0 0;
+    width: 100%;
+    background: none;
+}
+.input_error li {
+        width: 100%;
+        padding: 2px 10px;
+}
+@media only screen and (max-width: 700px) {
+  form.form_align_center{
+        width: 100%;
+    }
+  .label_input label p{
+        font-size: 14px;
+    }
+}
+
+/**************************** 自定義設定(非設計) *****************************/
+.bankAccountInfo_content {
+    display: grid;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.bankAccountInfo_content_title {
+    margin-right: 20px;
+    color: #61b0ae;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-content div.text-danger {
+        display: contents;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    margin-left: 95%;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+}
+
+.alipayAdapter_payButton {
+    margin-top: 0px !important;
+}
+
+.alipayAdapter_helpContent {
+    border-radius: 0 !important;
+}
+
+.alipayAdapter_helpContent_image {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+}
+
+.quickPay_submitButton {
+    display: none;
+}
+
+/*極速充值用*/
+.middleBtn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.mylightbox-hide {
+    display: none;
+}
+
+.mylightbox-layout {
+    width: 327px;
+    height: auto;
+    font-size: 15px;
+    color: red;
+    padding: 10px;
+}
+
+.orderStatusTitle {
+    font-size: 15px;
+}
+
+.customButton {
+    font-size: 13px;
+    width: 85px;
+}
+
+.text-red{
+    color:red;
+}
+    .text-red .swal-text {
+        color: red;
+    }
+
+@media only screen and (max-width: 414px) {
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .middleBtn {
+        position: absolute;
+        bottom: -2%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}

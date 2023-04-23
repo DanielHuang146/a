@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="" lang="zh-cn">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <title>充值付款/title>
+</head>
+<body>
+    <div class="container">
+    <header>
+        <div class="logo">
+            <img src="image/logo_alipay.svg"><h1>支付宝</h1>
+        </div>
+    </header>
+</div>
+<div class="container">
+    <div class="payment_system_content">
+        <h1>请扫描二维码以完成支付(或点击二维码下载图档)</h1>
+        <div class="article_content">
+            <p class="font_bold font_align_center">金额</p>
+            <p class="font_sizeXXL color_blue font_align_center" id="amount">¥100</p>
+            <div class="qrcode_content mgt20">			
+				<img src="image/qrcode.jpg" width="250" height="250"/>
+            </div>
+        </div>
+        <div class="article_content">
+            <h2><div><img src="image/ic_attention.svg"></div>注意事项：</h2>
+            <p>注意核对订单金额以免造成损失</p>
+            <p>充值未到账请联系站内或订单客服</p>
+            <div class="image_content">
+                <img src="image/alipay_guide.png" alt="" id="guide">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg_payment_flow"></div>
+<div class="bg_pattern">
+    <img src="image/bg_payment_flow.png" alt="">
+</div>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+			let queryString = window.location.search;
+			let urlParams = new URLSearchParams(queryString);
+			let amount = urlParams.get('amount');
+			
+			if (amount){
+				$("#amount").text(`¥${amount}`);
+			}
+        });
+    </script>
+</body>
+</html>
